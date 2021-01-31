@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const urlValidator = require("../middleware/urlValidator");
 
 module.exports = (app) => {
-  app.post("/api/crawler", urlValidator, async (req, res) => {
-    console.log(req.body.url);
+  app.post("/api/preview", urlValidator, async (req, res) => {
+    console.log('request', req.body.previewUrl);
   });
 };

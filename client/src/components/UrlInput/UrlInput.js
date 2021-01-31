@@ -44,10 +44,9 @@ const UrlInput = props =>  {
 }
 
  const submitHandler = (event) => {
+   console.log(urlForm.URL.value);
     event.preventDefault();
-     props.onPreview(
-      urlForm.URL.value,
-    );
+     props.onPreview(urlForm.URL.value,);
   };
 
 
@@ -98,14 +97,13 @@ const mapStateToProps = (state) => {
   return {
     loading: state.preview.loading,
     error: state.preview.error,
- 
+    previewData: state.preview.data
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onPreview: (url) =>
-      dispatch(actions.preview(url)),
+    onPreview: (url) => dispatch(actions.preview(url)),
   };
 };
 

@@ -7,11 +7,11 @@ export const previewStart = () => {
   };
 };
 
-export const previewSuccess = (token, userId) => {
+export const previewSuccess = (data) => {
   return {
     type: actionTypes.PREVIEW_URL_SUCCESS,
-    idToken: token,
-    userId: userId,
+    data: data,
+    
   };
 };
 
@@ -24,11 +24,11 @@ export const previewFail = (error) => {
 
 
 export const preview = (previewUrl) => {
+
   return (dispatch) => {
     dispatch(previewStart());
-    let url ="/api/url/preview";
-    axios
-      .post(url, previewUrl)
+    console.log(previewUrl, "actions");
+    axios.post("/api/preview", {previewUrl})
       .then((response) => {
         dispatch(previewSuccess(response.data));
       })

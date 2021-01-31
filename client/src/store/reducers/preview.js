@@ -6,6 +6,7 @@ const initalState = {
   url: null,
   error: null,
   loading: null,
+  data: null,
 };
 
 const previewStart = (state, action) => {
@@ -14,7 +15,7 @@ const previewStart = (state, action) => {
 
 const previewSuccess = (state, action) => {
   return updateObject(state, {
-    url: action.url,
+    data: action.data,
     error: null,
     loading: false,
   });

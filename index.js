@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 
 require("./services/crawler");
 
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -16,6 +17,8 @@ app.use(
     keys: [keys.cookieKey],
   })
 );
+
+require("./routes/crawlerRoutes")(app);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
