@@ -15,7 +15,7 @@ const previewStart = (state, action) => {
 
 const previewSuccess = (state, action) => {
   return updateObject(state, {
-    data: action.data,
+    data: action,
     error: null,
     loading: false,
   });

@@ -1,10 +1,9 @@
 const puppeteer = require("puppeteer");
 
-const url =
-  "https://www.asos.com/asos-tall/asos-design-tall-high-rise-slim-stretch-straight-leg-jean-in-brightwash/prd/21116821?colourwayid=60141625&SearchQuery=&cid=4331";
 
-  const url2 = 'https://www.amazon.com/gp/product/B0043D28B4?pf_rd_r=052FV10NNQC9AEZZM51P&pf_rd_p=6fc81c8c-2a38-41c6-a68a-f78c79e7253f';
-(async () => {
+exports.crawlUrl = async (url) => {
+  console.log(url)
+  try {
   const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
@@ -18,7 +17,7 @@ const url =
     height: 768,
   });
 
-  await page.goto(url2);
+  await page.goto(url);
 
   const getData = await page.evaluate(() => {
     let title = document.title;
@@ -44,6 +43,11 @@ const url =
       price
     };
   });
+  
   await browser.close();
-  console.log(getData);
-})();
+  return getData;
+} catch(error) {
+  res.status(400).send(error);
+}
+};
+

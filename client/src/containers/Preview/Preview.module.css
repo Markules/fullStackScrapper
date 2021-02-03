@@ -1,0 +1,21 @@
+.Container {
+    margin: auto;
+    box-shadow: 3px 3px 5px #777777;
+    width: 340px;
+    height: 400px;
+}
+
+.Title {
+    margin-top: 0;
+    color: #888888;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.ImageContainer{
+    overflow: hidden;
+}
+
+.Image{
+    width: 320px;
+}
